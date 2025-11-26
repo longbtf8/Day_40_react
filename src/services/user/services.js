@@ -1,8 +1,8 @@
 import httpRequest from "@/utils/httpRequest";
 
-export const getPost = async () => {
+export const getUser = async () => {
   try {
-    const response = await httpRequest.get("/posts");
+    const response = await httpRequest.get("/users");
     return response;
   } catch (error) {
     console.log(error);

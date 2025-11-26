@@ -4,7 +4,7 @@ const DefaultLayout = () => {
   return (
     <div>
       <div className="header">
-        <ul>
+        <ul className="nav">
           <li>
             <NavLink
               to="/"
@@ -13,6 +13,16 @@ const DefaultLayout = () => {
               }
             >
               Post
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/user"
+              className={({ isActive }) =>
+                isActive ? "active navLink" : "navLink"
+              }
+            >
+              User
             </NavLink>
           </li>
         </ul>

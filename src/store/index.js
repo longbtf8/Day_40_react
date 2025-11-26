@@ -3,3 +3,4 @@ import rootReducer from "./rootReducer";
 
 const store = legacy_createStore(rootReducer);
 export default store;
+window.store = store;

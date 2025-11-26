@@ -1,20 +1,20 @@
-import httpRequest from "@/utils/httpRequest";
-import { useEffect } from "react";
+import { useFetchPost } from "@/services/post";
 
 const Post = () => {
-  useEffect(() => {
-    httpRequest
-      .get("/posts")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const { isLoading, posts } = useFetchPost();
   return (
     <>
       <h1>Danh Sách Post</h1>
       <ul>
-        <li>ABC</li>
+        {isLoading
+          ? "Loading..."
+          : posts.map((post) => {
+              return (
+                <li key={post.id}>
+                  {post.id} - {post.title}
+                </li>
+              );
+            })}
       </ul>
     </>
   );

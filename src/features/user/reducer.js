@@ -1,14 +1,14 @@
 import { SET_ITEMS } from "./consts";
 
 const initState = {
-  data: [],
+  items: [],
 };
-const reducer = (state = initState, action) => {
-  switch (action.type) {
+const reducer = (state = initState, actions) => {
+  switch (actions.type) {
     case SET_ITEMS:
       return {
         ...state,
-        data: action.payload,
+        items: actions.payload,
       };
     default:
       return state;

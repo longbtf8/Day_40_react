@@ -1,24 +1,27 @@
+import { useUser } from "@/features/user";
+
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPost } from "./services";
-import { usePost } from "@/features/post/hooks";
-import { setItems } from "@/features/post/actions";
+import { getUser } from "./services";
+import { setItems } from "@/features/user/actions";
 
-export const useFetchPost = () => {
+export const useFetchUser = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const posts = usePost();
+  const users = useUser();
   useEffect(() => {
     (() => {
-      getPost()
+      getUser()
         .then((response) => {
           dispatch(setItems(response.data));
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err);
+        })
         .finally(() => {
           setIsLoading(false);
         });
     })();
   }, [dispatch]);
-  return { posts, isLoading };
+  return { users, isLoading };
 };

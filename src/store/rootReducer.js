@@ -1,7 +1,7 @@
-import Post from "@/pages/PostsList";
+import { reducer as postReducer } from "@/features/post";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  post: Post,
+  post: postReducer,
 });
 export default rootReducer;

@@ -1,24 +1,26 @@
 import { NavLink, Outlet } from "react-router";
 
 const DefaultLayout = () => {
-  <>
+  return (
     <div>
-      <ul>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => {
-              {
-                isActive ? "color : blue" : "";
+      <div className="header">
+        <ul>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "active navLink" : "navLink"
               }
-            }}
-          >
-            Post
-          </NavLink>
-        </li>
-      </ul>
+            >
+              Post
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+      <div className="main">
+        <Outlet />
+      </div>
     </div>
-    <Outlet />;
-  </>;
+  );
 };
 export default DefaultLayout;

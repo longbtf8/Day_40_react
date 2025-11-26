@@ -1,4 +1,6 @@
-const initState = {};
+const initState = {
+  data: [],
+};
 const reducer = (state = initState, action) => {
   switch (action.type) {
     default:

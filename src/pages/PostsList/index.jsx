@@ -1,4 +1,22 @@
+import httpRequest from "@/utils/httpRequest";
+import { useEffect } from "react";
+
 const Post = () => {
-  return <h1>Post</h1>;
+  useEffect(() => {
+    httpRequest
+      .get("/posts")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  return (
+    <>
+      <h1>Danh Sách Post</h1>
+      <ul>
+        <li>ABC</li>
+      </ul>
+    </>
+  );
 };
 export default Post;
